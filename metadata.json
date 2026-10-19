@@ -1,0 +1,6 @@
+{
+  "name": "L'Étoile Gastronomie",
+  "description": "Experience fine dining at L'Étoile Atelier Gastronomique. Three Michelin-starred sensory mastery, seasonal tasting menus, and rare cellar reserves.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

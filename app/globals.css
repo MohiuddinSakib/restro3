@@ -1,0 +1,163 @@
+@import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+@import "swiper/css/effect-fade";
+
+@theme {
+  --font-serif: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+  --font-sans: var(--font-jakarta), 'Plus Jakarta Sans', system-ui, sans-serif;
+  --color-sand-50: #FAF8F5;
+  --color-sand-100: #F5F0E8;
+  --color-sand-200: #EBE5D8;
+  --color-sand-300: #DDD5C4;
+  --color-sand-400: #C7BBA4;
+  --color-sand-800: #2A241E;
+  --color-sand-900: #1A1612;
+  --color-bronze: #C19A6B;
+  --color-bronze-dark: #936D3E;
+  --color-bronze-light: #DFC59E;
+}
+
+/* Custom shadows reset */
+.shadow-pedestal {
+  box-shadow: none !important;
+}
+.shadow-pedestal-hover {
+  box-shadow: none !important;
+}
+.shadow-floating {
+  box-shadow: none !important;
+}
+.shadow-soft {
+  box-shadow: none !important;
+}
+
+/* Flat luxury card styles without shadows or pseudo-shelves */
+.pedestal-shelf {
+  position: relative;
+  background: #EAE2D3;
+  box-shadow: none !important;
+  border: none !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+}
+
+.pedestal-shelf::after {
+  display: none !important;
+}
+
+.pedestal-shelf:hover {
+  transform: translateY(-4px);
+  box-shadow: none !important;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Nav link animated underline */
+.nav-link {
+  position: relative;
+  transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: #1F1A14;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Ambient Ken-Burns zoom on hero */
+@keyframes subtleKenBurns {
+  0% { transform: scale(1.0); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1.0); }
+}
+.animate-ambient-zoom {
+  animation: subtleKenBurns 28s ease-in-out infinite;
+}
+
+/* Atmosphere light shimmer over hero */
+@keyframes lightShimmer {
+  0%, 100% {
+    opacity: 0.15;
+    transform: translateY(-10%) rotate(-5deg);
+  }
+  50% {
+    opacity: 0.32;
+    transform: translateY(5%) rotate(5deg);
+  }
+}
+.hero-light-shimmer {
+  animation: lightShimmer 12s ease-in-out infinite alternate;
+}
+
+/* Star rating gentle warm shimmer */
+@keyframes starWarmGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 0px rgba(193, 154, 107, 0));
+  }
+  50% {
+    filter: drop-shadow(0 0 6px rgba(193, 154, 107, 0.65));
+  }
+}
+.star-glow {
+  animation: starWarmGlow 4s ease-in-out infinite;
+}
+
+@keyframes slowBadgePulse {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.08) rotate(45deg);
+  }
+}
+.animate-badge-pulse {
+  animation: slowBadgePulse 10s ease-in-out infinite;
+}
+
+/* Swiper custom navigation & dots */
+.hero-swiper-container {
+  width: 100%;
+  height: 100%;
+}
+.hero-swiper-container .swiper {
+  width: 100%;
+  height: 100%;
+  border-radius: 36px;
+}
+.hero-swiper-container .swiper-slide {
+  position: relative;
+  overflow: hidden;
+  border-radius: 36px;
+}
+.hero-swiper-container .swiper-pagination {
+  bottom: 24px !important;
+}
+.hero-swiper-container .swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0.7;
+  width: 8px;
+  height: 8px;
+  margin: 0 4px !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hero-swiper-container .swiper-pagination-bullet-active {
+  background: #C19A6B;
+  opacity: 1;
+  width: 28px;
+  border-radius: 9999px;
+}
